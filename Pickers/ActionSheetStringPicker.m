@@ -151,4 +151,20 @@
     return pickerView.frame.size.width - 30;
 }
 
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+	UILabel* tView = (UILabel*)view;
+	id obj = (self.data)[(NSUInteger) row];
+	if (!tView)
+	{
+		tView = [[UILabel alloc] init];
+		[tView setFont:[UIFont boldSystemFontOfSize:14.0]];
+		tView.textAlignment = UIControlContentHorizontalAlignmentCenter;
+	}
+	// Fill the label text here
+	tView.text=obj;
+	return tView;
+}
+
+
 @end
